@@ -11,6 +11,7 @@ const SecondPage = () => {
 
 export default SecondPage;
 
+
 const Wrap = styled.div`
   background-color: #aef5ef;
   text-align: center;

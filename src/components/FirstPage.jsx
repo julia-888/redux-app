@@ -1,10 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+import Table from "./Table";
 
 const FirstPage = () => {
   return (
     <Wrap>
       <h1>Таблица с данными</h1>
+      <Table />
       <Nav>
         <div>
           <button> 1 </button>
@@ -20,8 +22,10 @@ const FirstPage = () => {
 export default FirstPage;
 
 const Wrap = styled.div`
-  background-color: #aef5d2;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Nav = styled.nav`
