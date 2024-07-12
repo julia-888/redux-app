@@ -17,7 +17,6 @@ const Table = () => {
     getApiData();
   }, []);
 
-  console.log(products);
   return (
     <>
       <TableWrap>
@@ -39,7 +38,9 @@ const Table = () => {
               <td>{elem.title}</td>
               <td>{elem.category}</td>
               <td>{elem.description}</td>
-              <td>{elem.image}</td>
+              <td>
+                <img src={elem.image} />
+              </td>
               <td>{elem.price}</td>
               <td>
                 <p>{`Оценка: ${elem.rating.rate}`}</p>
@@ -47,12 +48,6 @@ const Table = () => {
               </td>
             </tr>
           ))}
-          <tr>
-            <td>4</td>
-            <td>4</td>
-            <td>4</td>
-            <td>4</td>
-          </tr>
         </tbody>
       </TableWrap>
     </>
@@ -65,16 +60,25 @@ const TableWrap = styled.table`
   border: solid;
   border-collapse: collapse;
 
+  tr {
+    height: 100px;
+  }
+
   th {
     border: solid;
   }
 
   td {
     border: solid;
+    text-align: center;
 
     p {
       padding: 0;
       margin: 0;
+    }
+
+    img {
+      max-width: 80px;
     }
   }
 `;
