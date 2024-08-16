@@ -1,16 +1,13 @@
-import { useState } from "react";
 import FirstPage from "./components/FirstPage";
 import SecondPage from "./components/SecondPage";
-
+import "./styles.css";
+import { useSelector } from "react-redux";
 
 function App() {
-  const [page, setPage] = useState(1);
+  const page = useSelector((state) => state.page.value);
 
   return (
-    // style={{ backgroundColor: "#234324", height: '100vh' }}
-    <div>
-      {page == 1 ? <FirstPage /> : <SecondPage />}
-    </div>
+    <div className="wrap_app">{page == 1 ? <FirstPage /> : <SecondPage />}</div>
   );
 }
 

@@ -1,8 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import dataReducer from "./dataSlice";
+import pageReducer from "./pageSlice";
+import productReducer from "./productSlice";
+import tableReducer from "./tableSlice";
 
 export const store = configureStore({
   reducer: {
-    dataForSecondPage: dataReducer,
+    page: pageReducer,
+    product: productReducer,
+    table: tableReducer,
   },
 });

@@ -5,10 +5,10 @@ import axios from "axios";
 
 const Table = () => {
   const getApiData = async () => {
-    const response = await axios("https://fakestoreapi.com/products");
+    const response = await axios("https://dummyjson.com/products");
 
     // Обновим состояние
-    setProducts(response.data);
+    setProducts(response.data.products);
   };
 
   const [products, setProducts] = useState([]);
@@ -22,7 +22,7 @@ const Table = () => {
       <TableWrap>
         <thead>
           <tr>
-            <th>id</th>
+            <th>№</th>
             <th>Название</th>
             <th>Категория</th>
             <th>Описание</th>
@@ -39,12 +39,11 @@ const Table = () => {
               <td>{elem.category}</td>
               <td>{elem.description}</td>
               <td>
-                <img src={elem.image} />
+                <img src={elem.images[0]} />
               </td>
               <td>{elem.price}</td>
               <td>
-                <p>{`Оценка: ${elem.rating.rate}`}</p>
-                <p>{`Количество: ${elem.rating.count}`}</p>
+                <p>{elem.rating}</p>
               </td>
             </tr>
           ))}

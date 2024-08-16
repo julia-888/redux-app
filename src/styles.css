@@ -1,0 +1,16 @@
+* {
+  font-family: "Arial";
+}
+
+.wrap_app {
+  padding: 10px 50px;
+}
+
+td,
+th {
+  padding: 10px;
+}
+
+td {
+  font-weight: 500;
+}

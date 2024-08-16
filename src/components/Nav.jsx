@@ -1,14 +1,30 @@
-import React, { useState } from "react";
 import { styled } from "styled-components";
+import { useDispatch } from "react-redux";
+import { flipPage } from "../state/pageSlice";
 
 const Nav = () => {
+  const dispatch = useDispatch();
+
   return (
     <NavWrap>
       <div>
-        <NavButton> 1 </NavButton>
+        <NavButton
+          onClick={() => {
+            console.log(1);
+            dispatch(flipPage(1));
+          }}
+        >
+          1
+        </NavButton>
       </div>
       <div>
-        <NavButton> 2 </NavButton>
+        <NavButton
+          onClick={() => {
+            dispatch(flipPage(2));
+          }}
+        >
+          2
+        </NavButton>
       </div>
     </NavWrap>
   );
