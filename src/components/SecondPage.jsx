@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 import Nav from "./Nav";
+import { Wrap } from "./Wraps";
 import { useDispatch, useSelector } from "react-redux";
 import { showProduct } from "../state/productSlice";
 
@@ -33,10 +33,3 @@ const SecondPage = () => {
 };
 
 export default SecondPage;
-
-const Wrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;

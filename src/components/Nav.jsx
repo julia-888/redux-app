@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 import { useDispatch } from "react-redux";
 import { flipPage } from "../state/pageSlice";
+import { NavWrap } from "./Wraps";
 
 const Nav = () => {
   const dispatch = useDispatch();
@@ -10,7 +11,6 @@ const Nav = () => {
       <div>
         <NavButton
           onClick={() => {
-            console.log(1);
             dispatch(flipPage(1));
           }}
         >
@@ -31,13 +31,6 @@ const Nav = () => {
 };
 
 export default Nav;
-
-const NavWrap = styled.nav`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  align-self: center;
-`;
 
 const NavButton = styled.button`
   background-color: tomato;

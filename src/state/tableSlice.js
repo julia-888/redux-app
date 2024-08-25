@@ -1,25 +1,31 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  perPage: 10,
+  perPage: 5,
   page: 1,
+  products: [],
 };
 
 const tableSlice = createSlice({
   name: "table",
   initialState,
   reducers: {
-    pagination: (state, action) => {
-      switch (action.type) {
-        case "table/page":
-          state.page = action.payload;
-        case "table/perPage":
-          state.perPage = action.payload;
-      }
+    tablePage: (state, action) => {
+      const page = action.payload.action;
+      return { ...state, page };
+    },
+    tablePerPage: (state, action) => {
+      const perPage = action.payload.action;
+      return { ...state, perPage };
+    },
+    tableProducts: (state, action) => {
+      const products = action.payload;
+      console.log(products);
+      return { ...state, products };
     },
   },
 });
 
 export default tableSlice.reducer;
 
-export const { pagination } = tableSlice.actions;
+export const { tablePage, tablePerPage, tableProducts } = tableSlice.actions;

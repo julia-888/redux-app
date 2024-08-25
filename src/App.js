@@ -7,7 +7,7 @@ function App() {
   const page = useSelector((state) => state.page.value);
 
   return (
-    <div className="wrap_app">{page == 1 ? <FirstPage /> : <SecondPage />}</div>
+    <div className="app_wrap">{page == 1 ? <FirstPage /> : <SecondPage />}</div>
   );
 }
 
