@@ -12,6 +12,8 @@ const Table = () => {
   const page = useSelector((state) => state.table.page);
   const products = useSelector((state) => state.table.products);
 
+  // const [products, setProducts] = useState([]);
+
   const getApiData = async () => {
     const response = await axios("https://dummyjson.com/products");
 
@@ -24,6 +26,7 @@ const Table = () => {
 
   useEffect(() => {
     getApiData();
+    console.log("effect");
   }, []);
 
   useEffect(() => {
@@ -46,7 +49,7 @@ const Table = () => {
         </thead>
         <tbody>
           {content.map((elem) => (
-            <tr>
+            <tr key={elem.id}>
               <td>{elem.id}</td>
               <td>{elem.title}</td>
               <td>{elem.category}</td>

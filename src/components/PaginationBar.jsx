@@ -8,20 +8,21 @@ const PaginationBar = () => {
 
   return (
     <NavWrap>
-      <span>Кол-во на стр.:</span>
+      <div>Кол-во на стр.:</div>
       <select
+        value={perPage}
         onChange={(e) => {
           dispatch(
             tablePerPage({ type: "table/perPage", action: e.target.value })
           );
         }}
       >
-        <option value={5}>5</option>
-        <option value={10}>10</option>
-        <option value={15}>15</option>
-        <option value={20}>20</option>
-        <option value={25}>25</option>
-        <option value={30}>30</option>
+        <option>5</option>
+        <option>10</option>
+        <option>15</option>
+        <option>20</option>
+        <option>25</option>
+        <option>30</option>
       </select>
     </NavWrap>
   );

@@ -34,7 +34,7 @@ export default Nav;
 
 const NavButton = styled.button`
   background-color: tomato;
-  margin: 20px;
+  margin: 0 10px;
   width: 45px;
   height: 30px;
   border-radius: 10px;

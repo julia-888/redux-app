@@ -20,7 +20,6 @@ const tableSlice = createSlice({
     },
     tableProducts: (state, action) => {
       const products = action.payload;
-      console.log(products);
       return { ...state, products };
     },
   },
