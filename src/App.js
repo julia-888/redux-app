@@ -4,10 +4,12 @@ import "./styles.css";
 import { useSelector } from "react-redux";
 
 function App() {
-  const page = useSelector((state) => state.page.value);
+  const openedPage = useSelector((state) => state.openedPage.value);
 
   return (
-    <div className="app_wrap">{page == 1 ? <FirstPage /> : <SecondPage />}</div>
+    <div className="app_wrap">
+      {openedPage == 1 ? <FirstPage /> : <SecondPage />}
+    </div>
   );
 }
 

@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { tablePerPage } from "../state/tableSlice";
+import { tablePerPage } from "../state/table";
 import { NavWrap } from "./Wraps";
 
 const PaginationBar = () => {

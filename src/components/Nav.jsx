@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 import { useDispatch } from "react-redux";
-import { flipPage } from "../state/pageSlice";
+import { flipPage } from "../state/openedPage";
 import { NavWrap } from "./Wraps";
 
 const Nav = () => {

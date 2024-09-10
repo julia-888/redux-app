@@ -3,22 +3,20 @@ import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
 import { useState } from "react";
 import axios from "axios";
-import { tableProducts } from "../state/tableSlice";
+import { getProductsFromAPI } from "../state/product";
 
 const Table = () => {
   const dispatch = useDispatch();
 
   const perPage = useSelector((state) => state.table.perPage);
   const page = useSelector((state) => state.table.page);
-  const products = useSelector((state) => state.table.products);
-
-  // const [products, setProducts] = useState([]);
+  const products = useSelector((state) => state.product.productsFromAPI);
 
   const getApiData = async () => {
     const response = await axios("https://dummyjson.com/products");
 
     // Обновим состояние - изменяем список продуктов
-    dispatch(tableProducts(response.data.products));
+    dispatch(getProductsFromAPI(response.data.products));
   };
 
   // content - содержимое таблицы в данный момент с учётом данных о товарах (products) и паджинации (page, perPage)
@@ -26,7 +24,6 @@ const Table = () => {
 
   useEffect(() => {
     getApiData();
-    console.log("effect");
   }, []);
 
   useEffect(() => {
@@ -42,7 +39,7 @@ const Table = () => {
             <th>Название</th>
             <th>Категория</th>
             <th>Описание</th>
-            <th>Фото</th>
+            {/* <th>Фото</th> */}
             <th>Цена</th>
             <th>Рейтинг</th>
           </tr>
@@ -54,13 +51,11 @@ const Table = () => {
               <td>{elem.title}</td>
               <td>{elem.category}</td>
               <td>{elem.description}</td>
-              <td>
+              {/* <td>
                 <img src={elem.images[0]} />
-              </td>
+              </td> */}
               <td>{elem.price}</td>
-              <td>
-                <p>{elem.rating}</p>
-              </td>
+              <td>{elem.rating}</td>
             </tr>
           ))}
         </tbody>
