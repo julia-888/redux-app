@@ -1,9 +1,28 @@
 * {
   font-family: "Arial";
+  background-color: #fafafa;
+  color: #001450;
 }
 
 .app_wrap {
   padding: 10px 50px;
+}
+
+.raleway {
+  /* font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal; */
+
+  /* font-family: "Golos Text", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal; */
+
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
 }
 
 td,

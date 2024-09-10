@@ -7,7 +7,7 @@ import PaginationBar from "./PaginationBar";
 const FirstPage = () => {
   return (
     <Wrap>
-      <h1>Товары</h1>
+      <h1 className="raleway">Товары</h1>
       <Table />
       <PaginationBar />
       <Nav />

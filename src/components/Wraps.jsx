@@ -5,6 +5,7 @@ const Wrap = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 0 200px;
 `;
 
 const NavWrap = styled.nav`

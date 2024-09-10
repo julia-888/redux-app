@@ -36,7 +36,7 @@ const Table = () => {
         <thead>
           <tr>
             <th>№</th>
-            <th>Название</th>
+            <th className="raleway">Название</th>
             <th>Категория</th>
             <th>Описание</th>
             {/* <th>Фото</th> */}

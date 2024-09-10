@@ -1,31 +1,37 @@
 import { styled } from "styled-components";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { flipPage } from "../state/openedPage";
 import { NavWrap } from "./Wraps";
 
 const Nav = () => {
+  const page = useSelector((state) => state.openedPage.value);
   const dispatch = useDispatch();
 
   return (
     <NavWrap>
-      <div>
-        <NavButton
-          onClick={() => {
-            dispatch(flipPage(1));
-          }}
-        >
-          1
-        </NavButton>
-      </div>
-      <div>
-        <NavButton
-          onClick={() => {
-            dispatch(flipPage(2));
-          }}
-        >
-          2
-        </NavButton>
-      </div>
+      {page == 1 ? (
+        <div>
+          <NavButton
+            className="raleway"
+            onClick={() => {
+              dispatch(flipPage(2));
+            }}
+          >
+            Детальный просмотр
+          </NavButton>
+        </div>
+      ) : (
+        <div>
+          <NavButton
+            className="raleway"
+            onClick={() => {
+              dispatch(flipPage(1));
+            }}
+          >
+            Все товары
+          </NavButton>
+        </div>
+      )}
     </NavWrap>
   );
 };
@@ -33,9 +39,11 @@ const Nav = () => {
 export default Nav;
 
 const NavButton = styled.button`
-  background-color: tomato;
-  margin: 0 10px;
-  width: 45px;
-  height: 30px;
-  border-radius: 10px;
+  background-color: #2ecc71;
+  border: none;
+  color: #ffffff;
+  padding: 15px;
+  /* letter-spacing: 0.9px; */
+  /* border-radius: 5px; */
+  font-size: 1em;
 `;

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { styled } from "styled-components";
 import _ from "lodash";
 import Nav from "./Nav";
 import { Wrap } from "./Wraps";
@@ -23,14 +24,14 @@ const SecondPage = () => {
     <Wrap>
       <h2>Информация о товаре</h2>
       {!_.isEmpty(productShownData) && (
-        <div>
+        <Info>
           <p>Номер: {productShownData.id}</p>
           <p>Название: {productShownData.title}</p>
           <p>Категория: {productShownData.category}</p>
           <p>Описание: {productShownData.description}</p>
           <p>Цена: {productShownData.price}</p>
           <p>Рейтинг: {productShownData.rating}</p>
-        </div>
+        </Info>
       )}
       <p>
         Товар номер:
@@ -53,3 +54,7 @@ const SecondPage = () => {
 };
 
 export default SecondPage;
+
+const Info = styled.div`
+  max-width: 800px;
+`;
