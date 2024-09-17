@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import styled from "styled-components";
+import { DataGrid } from "@mui/x-data-grid";
 import { useState } from "react";
+import { styled } from "styled-components";
 import axios from "axios";
 import { getProductsFromAPI } from "../state/product";
+import DataGridDemo from "./DataGrid";
 
 const Table = () => {
   const dispatch = useDispatch();
@@ -32,14 +34,16 @@ const Table = () => {
 
   return (
     <>
-      <TableWrap>
+      {/* <DataGrid rows={products} /> */}
+      <DataGridDemo />
+
+      {/* <TableWrap>
         <thead>
           <tr>
             <th>№</th>
             <th className="raleway">Название</th>
             <th>Категория</th>
             <th>Описание</th>
-            {/* <th>Фото</th> */}
             <th>Цена</th>
             <th>Рейтинг</th>
           </tr>
@@ -51,15 +55,12 @@ const Table = () => {
               <td>{elem.title}</td>
               <td>{elem.category}</td>
               <td>{elem.description}</td>
-              {/* <td>
-                <img src={elem.images[0]} />
-              </td> */}
               <td>{elem.price}</td>
               <td>{elem.rating}</td>
             </tr>
           ))}
         </tbody>
-      </TableWrap>
+      </TableWrap> */}
     </>
   );
 };
