@@ -80,7 +80,6 @@ const TableWrap = styled.table`
 
   td {
     border: solid;
-    text-align: center;
 
     p {
       padding: 0;
