@@ -1,56 +1,48 @@
 import * as React from "react";
-// import Box from "@mui/material/Box";
+import Box from "@mui/material/Box";
 import { DataGrid } from "@mui/x-data-grid";
 import { useSelector, useDispatch } from "react-redux";
 
 const columns = [
-  { field: "id", headerName: "ID", width: 90 },
+  { field: "id", headerName: "№", width: 90 },
   {
-    field: "firstName",
-    headerName: "First name",
+    field: "title",
+    headerName: "Название",
     width: 150,
     editable: true,
   },
   {
-    field: "lastName",
-    headerName: "Last name",
+    field: "category",
+    headerName: "Категория",
     width: 150,
     editable: true,
   },
   {
-    field: "age",
-    headerName: "Age",
+    field: "description",
+    headerName: "Описание",
+    width: 370,
+    editable: true,
+  },
+  {
+    field: "price",
+    headerName: "Цена",
     type: "number",
-    width: 110,
+    // width: 110,
     editable: true,
   },
   {
-    field: "fullName",
-    headerName: "Full name",
-    description: "This column has a value getter and is not sortable.",
-    sortable: false,
-    width: 160,
-    valueGetter: (value, row) => `${row.firstName || ""} ${row.lastName || ""}`,
+    field: "rating",
+    headerName: "Рейтинг",
+    type: "number",
+    // width: 110,
+    editable: true,
   },
 ];
-
-// const rows = [
-//   { id: 1, lastName: "Snow", firstName: "Jon", age: 14 },
-//   { id: 2, lastName: "Lannister", firstName: "Cersei", age: 31 },
-//   { id: 3, lastName: "Lannister", firstName: "Jaime", age: 31 },
-//   { id: 4, lastName: "Stark", firstName: "Arya", age: 11 },
-//   { id: 5, lastName: "Targaryen", firstName: "Daenerys", age: null },
-//   { id: 6, lastName: "Melisandre", firstName: null, age: 150 },
-//   { id: 7, lastName: "Clifford", firstName: "Ferrara", age: 44 },
-//   { id: 8, lastName: "Frances", firstName: "Rossini", age: 36 },
-//   { id: 9, lastName: "Roxie", firstName: "Harvey", age: 65 },
-// ];
 
 export default function DataGridDemo() {
   const products = useSelector((state) => state.product.productsFromAPI);
 
   return (
-    // <Box sx={{ height: 400, width: "100%" }}>
     <DataGrid
       rows={products}
       columns={columns}
@@ -61,10 +53,8 @@ export default function DataGridDemo() {
           },
         },
       }}
-      pageSizeOptions={[5]}
-      checkboxSelection
+      pageSizeOptions={[5, 10, 15, 20, 25, 30]}
       disableRowSelectionOnClick
     />
-    // </Box>
   );
 }

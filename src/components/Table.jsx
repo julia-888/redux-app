@@ -5,13 +5,10 @@ import { useState } from "react";
 import { styled } from "styled-components";
 import axios from "axios";
 import { getProductsFromAPI } from "../state/product";
-import DataGridDemo from "./DataGrid";
 
 const Table = () => {
   const dispatch = useDispatch();
 
-  const perPage = useSelector((state) => state.table.perPage);
-  const page = useSelector((state) => state.table.page);
   const products = useSelector((state) => state.product.productsFromAPI);
 
   const getApiData = async () => {
@@ -21,47 +18,61 @@ const Table = () => {
     dispatch(getProductsFromAPI(response.data.products));
   };
 
-  // content - содержимое таблицы в данный момент с учётом данных о товарах (products) и паджинации (page, perPage)
-  const [content, setContent] = useState([]);
-
   useEffect(() => {
     getApiData();
   }, []);
 
-  useEffect(() => {
-    setContent(products.slice(0, perPage));
-  }, [perPage, products]);
+  const columns = [
+    { field: "id", headerName: "№", width: 90 },
+    {
+      field: "title",
+      headerName: "Название",
+      width: 150,
+      editable: true,
+    },
+    {
+      field: "category",
+      headerName: "Категория",
+      width: 150,
+      editable: true,
+    },
+    {
+      field: "description",
+      headerName: "Описание",
+      width: 370,
+      editable: true,
+    },
+    {
+      field: "price",
+      headerName: "Цена",
+      type: "number",
+      // width: 110,
+      editable: true,
+    },
+    {
+      field: "rating",
+      headerName: "Рейтинг",
+      type: "number",
+      // width: 110,
+      editable: true,
+    },
+  ];
 
   return (
-    <>
-      {/* <DataGrid rows={products} /> */}
-      <DataGridDemo />
-
-      {/* <TableWrap>
-        <thead>
-          <tr>
-            <th>№</th>
-            <th className="raleway">Название</th>
-            <th>Категория</th>
-            <th>Описание</th>
-            <th>Цена</th>
-            <th>Рейтинг</th>
-          </tr>
-        </thead>
-        <tbody>
-          {content.map((elem) => (
-            <tr key={elem.id}>
-              <td>{elem.id}</td>
-              <td>{elem.title}</td>
-              <td>{elem.category}</td>
-              <td>{elem.description}</td>
-              <td>{elem.price}</td>
-              <td>{elem.rating}</td>
-            </tr>
-          ))}
-        </tbody>
-      </TableWrap> */}
-    </>
+    <DataGrid
+      rows={products}
+      columns={columns}
+      initialState={{
+        pagination: {
+          paginationModel: {
+            pageSize: 5,
+          },
+        },
+      }}
+      pageSizeOptions={[5, 10, 15, 20, 25, 30]}
+      disableRowSelectionOnClick
+      autoHeight
+    />
   );
 };
 
