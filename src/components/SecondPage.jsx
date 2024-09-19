@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { styled } from "styled-components";
+import { Typography, Box } from "@mui/material";
 import _ from "lodash";
 import Nav from "./Nav";
-import { Wrap } from "./Wraps";
 import { useDispatch, useSelector } from "react-redux";
 import { showProduct } from "../state/product";
 
@@ -21,17 +20,28 @@ const SecondPage = () => {
   }, [productShownId, productsFromAPI]);
 
   return (
-    <Wrap>
-      <h2>Информация о товаре</h2>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        padding: "0 200px",
+      }}
+    >
+      <Typography sx={{ fontWeight: "450", margin: "40px 0" }} variant="h4">
+        Информация о товаре
+      </Typography>
+
       {!_.isEmpty(productShownData) && (
-        <Info>
+        <Typography variant="subtitle1" sx={{ maxWidth: "1000px" }}>
           <p>Номер: {productShownData.id}</p>
           <p>Название: {productShownData.title}</p>
           <p>Категория: {productShownData.category}</p>
           <p>Описание: {productShownData.description}</p>
           <p>Цена: {productShownData.price}</p>
           <p>Рейтинг: {productShownData.rating}</p>
-        </Info>
+        </Typography>
       )}
       <p>
         Товар номер:
@@ -49,12 +59,8 @@ const SecondPage = () => {
         </button>
       </p>
       <Nav />
-    </Wrap>
+    </Box>
   );
 };
 
 export default SecondPage;
-
-const Info = styled.div`
-  max-width: 800px;
-`;

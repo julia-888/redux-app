@@ -72,6 +72,7 @@ const Table = () => {
       pageSizeOptions={[5, 10, 15, 20, 25, 30]}
       disableRowSelectionOnClick
       autoHeight
+      sx={{ margin: "20px 0" }}
     />
   );
 };

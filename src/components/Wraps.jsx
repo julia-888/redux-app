@@ -1,12 +1,4 @@
-import { styled } from "styled-components";
-
-const Wrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 0 200px;
-`;
+import styled from "styled-components";
 
 const NavWrap = styled.nav`
   display: flex;
@@ -16,4 +8,4 @@ const NavWrap = styled.nav`
   padding: 20px;
 `;
 
-export { Wrap, NavWrap };
+export { NavWrap };
