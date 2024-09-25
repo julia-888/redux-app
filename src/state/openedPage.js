@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 // номер страницы
 
 const initialState = {
-  value: 1,
+  page: 1,
 };
 
 const openedPageSlice = createSlice({
@@ -11,8 +11,8 @@ const openedPageSlice = createSlice({
   initialState,
   reducers: {
     flipPage: (state, action) => {
-      const value = action.payload;
-      return { ...state, value };
+      const page = action.payload;
+      return { ...state, page };
     },
   },
 });

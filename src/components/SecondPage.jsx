@@ -67,7 +67,7 @@ const SecondPage = () => {
           </p>
         </Typography>
       )}
-      <Box sx={{ display: "flex", alignItems: "center", margin: "40px 0" }}>
+      <Box sx={{}}>
         <TextField
           label="Товар номер"
           onChange={(e) => {
@@ -97,7 +97,9 @@ const SecondPage = () => {
           onClick={() => {
             !numberError && dispatch(showProduct(newProductId));
           }}
-          variant="contained"
+          // variant="outlined"
+          color="secondary"
+          sx={{ margin: "25px 5px" }}
         >
           Показать
         </Button>

@@ -1,14 +1,22 @@
 import { useDispatch, useSelector } from "react-redux";
 import { flipPage } from "../state/openedPage";
-import { NavWrap } from "./Wraps";
+import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 
 const Nav = () => {
-  const page = useSelector((state) => state.openedPage.value);
+  const page = useSelector((state) => state.openedPage.page);
   const dispatch = useDispatch();
 
   return (
-    <NavWrap>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+        alignSelf: "center",
+        padding: "20px",
+      }}
+    >
       {page == 1 ? (
         <Button
           variant="contained"
@@ -28,7 +36,7 @@ const Nav = () => {
           Все товары
         </Button>
       )}
-    </NavWrap>
+    </Box>
   );
 };
 

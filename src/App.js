@@ -4,13 +4,9 @@ import "./styles.css";
 import { useSelector } from "react-redux";
 
 function App() {
-  const openedPage = useSelector((state) => state.openedPage.value);
+  const openedPage = useSelector((state) => state.openedPage.page);
 
-  return (
-    <div className="app_wrap">
-      {openedPage == 1 ? <FirstPage /> : <SecondPage />}
-    </div>
-  );
+  return <div>{openedPage == 1 ? <FirstPage /> : <SecondPage />}</div>;
 }
 
 export default App;
