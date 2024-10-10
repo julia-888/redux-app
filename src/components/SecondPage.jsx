@@ -67,7 +67,7 @@ const SecondPage = () => {
           </p>
         </Typography>
       )}
-      <Box sx={{}}>
+      <Box sx={{ margin: "10px" }}>
         <TextField
           label="Товар номер"
           onChange={(e) => {
@@ -89,7 +89,7 @@ const SecondPage = () => {
           }}
           sx={{ margin: "15px" }}
           helperText={
-            numberError ? `Введите число от 0 до ${productsFromAPI.length}` : ""
+            numberError ? `Введите число от 1 до ${productsFromAPI.length}` : ""
           }
           error={numberError}
         />

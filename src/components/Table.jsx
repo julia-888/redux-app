@@ -38,7 +38,7 @@ const Table = () => {
       showCellVerticalBorder
       getRowHeight={() => "auto"}
       sx={{
-        margin: "20px 0",
+        margin: "30px 0",
         "& .MuiDataGrid-cell": {
           display: "flex",
           alignItems: "center",

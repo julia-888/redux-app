@@ -15,6 +15,7 @@ const Nav = () => {
         alignItems: "center",
         alignSelf: "center",
         padding: "20px",
+        margin: "20px",
       }}
     >
       {page == 1 ? (

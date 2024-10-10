@@ -12,10 +12,10 @@ const FirstPage = () => {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        padding: "0 200px",
+        padding: "40px 200px",
       }}
     >
-      <Typography sx={{ fontWeight: "400", margin: "40px 0" }} variant="h3">
+      <Typography sx={{ fontWeight: "400" }} variant="h4">
         Товары
       </Typography>
       <Table />
