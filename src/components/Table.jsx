@@ -39,7 +39,6 @@ const Table = () => {
             <th className="raleway">Название</th>
             <th>Категория</th>
             <th>Описание</th>
-            {/* <th>Фото</th> */}
             <th>Цена</th>
             <th>Рейтинг</th>
           </tr>
@@ -51,9 +50,6 @@ const Table = () => {
               <td>{elem.title}</td>
               <td>{elem.category}</td>
               <td>{elem.description}</td>
-              {/* <td>
-                <img src={elem.images[0]} />
-              </td> */}
               <td>{elem.price}</td>
               <td>{elem.rating}</td>
             </tr>
@@ -67,7 +63,7 @@ const Table = () => {
 export default Table;
 
 const TableWrap = styled.table`
-  border: solid;
+  border: solid 2px;
   border-collapse: collapse;
 
   tr {
@@ -75,11 +71,11 @@ const TableWrap = styled.table`
   }
 
   th {
-    border: solid;
+    border: solid 2px;
   }
 
   td {
-    border: solid;
+    border: solid 2px;
 
     p {
       padding: 0;

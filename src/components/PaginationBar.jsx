@@ -8,7 +8,9 @@ const PaginationBar = () => {
 
   return (
     <NavWrap>
-      <div>Кол-во на стр.:</div>
+      <div style={{ fontWeight: 600, marginRight: "15px" }}>
+        Кол-во на стр.:
+      </div>
       <select
         value={perPage}
         onChange={(e) => {

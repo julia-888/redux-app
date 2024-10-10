@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { styled } from "styled-components";
 import _ from "lodash";
 import Nav from "./Nav";
-import { Wrap } from "./Wraps";
 import { useDispatch, useSelector } from "react-redux";
 import { showProduct } from "../state/product";
 
@@ -21,7 +20,7 @@ const SecondPage = () => {
   }, [productShownId, productsFromAPI]);
 
   return (
-    <Wrap>
+    <WrapSecondPage>
       <h2>Информация о товаре</h2>
       {!_.isEmpty(productShownData) && (
         <Info>
@@ -31,30 +30,61 @@ const SecondPage = () => {
           <p>Описание: {productShownData.description}</p>
           <p>Цена: {productShownData.price}</p>
           <p>Рейтинг: {productShownData.rating}</p>
+          <p style={{ fontWeight: 600 }}>
+            Товар номер:
+            <Input
+              onChange={(e) => {
+                setNewProductId(Number(e.target.value));
+              }}
+            />
+            <ShowButton
+              onClick={() => {
+                dispatch(showProduct(newProductId));
+              }}
+            >
+              Показать!
+            </ShowButton>
+          </p>
         </Info>
       )}
-      <p>
-        Товар номер:
-        <input
-          onChange={(e) => {
-            setNewProductId(Number(e.target.value));
-          }}
-        />
-        <button
-          onClick={() => {
-            dispatch(showProduct(newProductId));
-          }}
-        >
-          Показать!
-        </button>
-      </p>
       <Nav />
-    </Wrap>
+    </WrapSecondPage>
   );
 };
 
 export default SecondPage;
 
+const WrapSecondPage = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 530px;
+`;
+
 const Info = styled.div`
-  max-width: 800px;
+  align-self: start;
+`;
+
+const ShowButton = styled.button`
+  /* background-color: #f34256; */
+  background-color: #42bbf3;
+  margin: 20px;
+  padding: 8px 15px;
+  color: #ffffff;
+  font-weight: 550;
+  border-radius: 10px;
+  border: none;
+  font-size: 0.95em;
+`;
+
+const Input = styled.input`
+  margin: 0 0 0 10px;
+  padding: 1px;
+  width: 70px;
+  /* height: 40px; */
+  font-size: 1em;
+  border: none;
+  border-bottom: 2px solid #07a1e9;
+  outline: none;
 `;
