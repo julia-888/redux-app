@@ -38,20 +38,20 @@ const SecondPage = () => {
               onChange={(e) => {
                 outOfRange && setOutOfRange(false);
                 setNewProductId(Number(e.target.value));
+                (Number(e.target.value) < 1 || Number(e.target.value) > 30) &&
+                  setOutOfRange(true);
               }}
             />
             <ShowButton
               onClick={() => {
-                if (newProductId > 0 && newProductId < 31) {
+                newProductId > 0 &&
+                  newProductId < 31 &&
                   dispatch(showProduct(newProductId));
-                } else {
-                  setOutOfRange(true);
-                }
               }}
             >
               Показать!
             </ShowButton>
-            {outOfRange && <Warning>Введите другое число</Warning>}
+            {outOfRange && <Warning>Введите число от 1 до 30</Warning>}
           </p>
         </Info>
       )}
@@ -97,6 +97,6 @@ const Input = styled.input`
   outline: none;
 `;
 
-const Warning = styled.span`
+const Warning = styled.div`
   color: red;
 `;
