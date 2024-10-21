@@ -14,6 +14,8 @@ const SecondPage = () => {
 
   const [newProductId, setNewProductId] = useState(1);
 
+  const [outOfRange, setOutOfRange] = useState(false);
+
   useEffect(() => {
     const elem = productsFromAPI.filter((item) => item.id === productShownId);
     setProductShownData(elem[0]);
@@ -34,16 +36,22 @@ const SecondPage = () => {
             Товар номер:
             <Input
               onChange={(e) => {
+                outOfRange && setOutOfRange(false);
                 setNewProductId(Number(e.target.value));
               }}
             />
             <ShowButton
               onClick={() => {
-                dispatch(showProduct(newProductId));
+                if (newProductId > 0 && newProductId < 31) {
+                  dispatch(showProduct(newProductId));
+                } else {
+                  setOutOfRange(true);
+                }
               }}
             >
               Показать!
             </ShowButton>
+            {outOfRange && <Warning>Введите другое число</Warning>}
           </p>
         </Info>
       )}
@@ -87,4 +95,8 @@ const Input = styled.input`
   border: none;
   border-bottom: 2px solid #07a1e9;
   outline: none;
+`;
+
+const Warning = styled.span`
+  color: red;
 `;
