@@ -17,6 +17,7 @@ const PaginationBar = () => {
           dispatch(
             tablePerPage({ type: "table/perPage", action: e.target.value })
           );
+          window.scrollTo(0, 0);
         }}
       >
         <option>5</option>

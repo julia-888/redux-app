@@ -35,18 +35,24 @@ const SecondPage = () => {
           <p style={{ fontWeight: 600 }}>
             Товар номер:
             <Input
+              // любые изменения в текстовом поле
               onChange={(e) => {
+                // если сообщение о невалидности горит - убрать его
                 outOfRange && setOutOfRange(false);
-                setNewProductId(Number(e.target.value));
-                (Number(e.target.value) < 1 || Number(e.target.value) > 30) &&
+                if (
+                  Number(e.target.value) < 1 ||
+                  Number(e.target.value) > 30 ||
+                  isNaN(Number(e.target.value))
+                ) {
                   setOutOfRange(true);
+                } else {
+                  setNewProductId(Number(e.target.value));
+                }
               }}
             />
             <ShowButton
               onClick={() => {
-                newProductId > 0 &&
-                  newProductId < 31 &&
-                  dispatch(showProduct(newProductId));
+                !outOfRange && dispatch(showProduct(newProductId));
               }}
             >
               Показать!
@@ -89,7 +95,7 @@ const ShowButton = styled.button`
 const Input = styled.input`
   margin: 0 0 0 10px;
   padding: 1px;
-  width: 70px;
+  width: 30px;
   /* height: 40px; */
   font-size: 1em;
   border: none;
