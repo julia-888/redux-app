@@ -43,7 +43,5 @@ const NavButton = styled.button`
   border: none;
   color: #ffffff;
   padding: 15px;
-  /* letter-spacing: 0.9px; */
-  /* border-radius: 5px; */
   font-size: 1em;
 `;

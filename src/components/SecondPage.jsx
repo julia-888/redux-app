@@ -57,7 +57,7 @@ const SecondPage = () => {
             >
               Показать!
             </ShowButton>
-            {outOfRange && <Warning>Введите число от 1 до 30</Warning>}
+            <Warning $visible={outOfRange}>Введите число от 1 до 30</Warning>
           </p>
         </Info>
       )}
@@ -81,7 +81,6 @@ const Info = styled.div`
 `;
 
 const ShowButton = styled.button`
-  /* background-color: #f34256; */
   background-color: #42bbf3;
   margin: 20px;
   padding: 8px 15px;
@@ -96,7 +95,6 @@ const Input = styled.input`
   margin: 0 0 0 10px;
   padding: 1px;
   width: 30px;
-  /* height: 40px; */
   font-size: 1em;
   border: none;
   border-bottom: 2px solid #07a1e9;
@@ -105,4 +103,5 @@ const Input = styled.input`
 
 const Warning = styled.div`
   color: red;
+  visibility: ${(props) => !props.$visible && "hidden"};
 `;
