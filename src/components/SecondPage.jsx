@@ -22,10 +22,10 @@ const SecondPage = () => {
   }, [productShownId, productsFromAPI]);
 
   return (
-    <WrapSecondPage>
+    <div className="flex flex-col justify-center items-center py-0 px-[530px]">
       <h2>Информация о товаре</h2>
       {!_.isEmpty(productShownData) && (
-        <Info>
+        <div className="align-self-start">
           <p>Номер: {productShownData.id}</p>
           <p>Название: {productShownData.title}</p>
           <p>Категория: {productShownData.category}</p>
@@ -34,7 +34,8 @@ const SecondPage = () => {
           <p>Рейтинг: {productShownData.rating}</p>
           <p style={{ fontWeight: 600 }}>
             Товар номер:
-            <Input
+            <input
+              className="mx-[10px] p-[1px] w-[30px] border-0 border-b-[2px] border-[#42bbf3] outline-none"
               // любые изменения в текстовом поле
               onChange={(e) => {
                 // если сообщение о невалидности горит - убрать его
@@ -50,56 +51,24 @@ const SecondPage = () => {
                 }
               }}
             />
-            <ShowButton
+            <button
+              className="bg-[#42bbf3] m-[20px] py-[8px] px-[15px] text-white font-[500] rounded-[10px] border-0"
               onClick={() => {
                 !outOfRange && dispatch(showProduct(newProductId));
               }}
             >
               Показать!
-            </ShowButton>
+            </button>
             <Warning $visible={outOfRange}>Введите число от 1 до 30</Warning>
           </p>
-        </Info>
+        </div>
       )}
       <Nav />
-    </WrapSecondPage>
+    </div>
   );
 };
 
 export default SecondPage;
-
-const WrapSecondPage = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 0 530px;
-`;
-
-const Info = styled.div`
-  align-self: start;
-`;
-
-const ShowButton = styled.button`
-  background-color: #42bbf3;
-  margin: 20px;
-  padding: 8px 15px;
-  color: #ffffff;
-  font-weight: 550;
-  border-radius: 10px;
-  border: none;
-  font-size: 0.95em;
-`;
-
-const Input = styled.input`
-  margin: 0 0 0 10px;
-  padding: 1px;
-  width: 30px;
-  font-size: 1em;
-  border: none;
-  border-bottom: 2px solid #07a1e9;
-  outline: none;
-`;
 
 const Warning = styled.div`
   color: red;

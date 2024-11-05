@@ -12,7 +12,8 @@ const PaginationBar = () => {
       <div style={{ fontWeight: 600, marginRight: "15px" }}>
         Кол-во на стр.:
       </div>
-      <Select
+      <select
+        className="py-[5px] pr-[15px] pl-[5px]"
         value={perPage}
         onChange={(e) => {
           dispatch(
@@ -27,13 +28,9 @@ const PaginationBar = () => {
         <option>20</option>
         <option>25</option>
         <option>30</option>
-      </Select>
+      </select>
     </NavWrap>
   );
 };
 
 export default PaginationBar;
-
-const Select = styled.select`
-  padding: 5px 15px 5px 5px;
-`;
